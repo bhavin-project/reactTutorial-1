@@ -260,6 +260,8 @@ This is a powerful feature that allows components to be flexible and reusable.
 
 ---
 
+react18Project-Book example
+
 ## Go to advanceReact Tutorial
 
 --
@@ -267,3 +269,53 @@ Go to below website for functional component life cycle
 https://dev.to/anshumanmahato/exploring-react-hooks-simplifying-state-and-lifecycle-in-functional-components-56ch
 
 ## https://manikandan-b.medium.com/react-functional-component-lifecycle-e8525f8fadea
+
+Lifecycle Stage Methods
+
+Mounting-- constructor()
+static getDerivedStateFromProps()
+
+                  render()
+
+                  componentDidMount()
+
+Updating--- static getDerivedStateFromProps()
+shouldComponentUpdate()
+
+                render()
+
+                getSnapshotBeforeUpdate()
+
+                componentDidUpdate()
+
+Unmounting--- componentWillUnmount()
+
+Error Handling-- static getDerivedStateFromError()
+componentDidCatch()
+
+---
+
+The useEffect() hook takes an effect function and a dependency array as an argument. This effect function executes when
+the component mounts and on further updates based on the dependency array. The dependency array takes a set of state
+variables that it tracks for updates. If any of their value changes, then it executes.
+
+/_ If we don't provide a dependency array, the effect will run on every re-render _/
+useEffect(() => {
+console.log("Effect running on every re-render");
+});
+
+/_ If we provide an empty dependency array, the effect will run only on the mount phase _/
+useEffect(() => {
+console.log("Effect running only on mount phase");
+}, []);
+
+/_ If we provide a dependency array with some variables, the effect will run on re-render if their value is updated _/
+const [count, setCount] = useState(0);
+
+useEffect(() => {
+console.log("Effect running on re-render if count is updated");
+}, [count]);
+
+---
+
+Project node and react - fulstacknr
